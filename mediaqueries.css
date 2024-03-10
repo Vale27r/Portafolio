@@ -1,0 +1,95 @@
+/* ----- ----- MEDIA QUERIES ----- ----- */
+
+
+@media screen and (max-width: 1200px) { /*----------Para dispositivos a partir de 1024px----------*/
+    /*----------Menú------------*/
+    header .menu {
+        flex-direction: row; 
+        /* Para que el menú no ocupe toda la altura en dispositivos pequeños */
+        height: 70px; 
+        /* Para que el menú se coloque en la parte inferior de la pantalla*/
+        top: auto;
+        bottom: 0;
+        /* Para que el menú se centre */
+        padding: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    header .menu a {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        margin: 0 0.1rem;
+        background: none;
+    }
+    header .menu a:hover {
+        text-shadow:none;
+        background: none;
+    }
+
+    .main .trabajos .contenedor .portfolios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media screen and (max-width:800px) {  /*-------Para dispositivos a partir de 800px-------------*/
+    /*Portafolio*/
+    .main .trabajos .contenedor .portfolios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .portfolios .portfolio-item .hover-items .icons .icon {
+        width: 66px;
+        height: 66px;
+    }
+    .portfolios .portfolio-item .hover-items .icons .icon i {
+        font-size: 2rem;
+    }
+    
+    
+    /*Redes Sociales*/
+    footer .redes-sociales {
+        padding-top: 20px;
+        margin-bottom: 50px;
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width: 500px) {  /*---------------Para dispositivos a partir de 500px----------------*/
+    /*Titulo*/
+    .titulo-principal h2 {
+        font-size: 2.5rem;
+    }
+
+
+    /*Contenedor de texto*/
+    header .contenedor-texto .texto .nombre {
+        font-size: 2.5rem; 
+    }
+    header .contenedor-texto .texto .profesion {
+        font-size: 1.2rem; 
+    }
+    header .contenedor-texto {
+        padding-bottom: 50px;
+        margin: 45px;
+    }
+
+
+    /*Portafolio*/
+    .main .trabajos .contenedor .portfolios {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .main .trabajos .contenedor .portfolios .portfolio-item .hover-items h3,
+    .main .trabajos .contenedor .portfolios .portfolio-item .hover-items h4 {
+        font-size: 1.2rem;
+    }
+    
+
+}

@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: #05001f;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px; 
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    //Hace que se oculte todo el contenido sobrante, es decir, todo lo que sobresalga del contenedor
+    overflow: hidden; 
+}
+
+//-------------------COLORES-------------------
+
+$color-gris: #7D7C7C;
+$color-blanco: #f2f2f2;
+$color-primero: #05001f;
+$color-segundo: #11BFBF;
+$color-tercero: #9d0208;
+$color-scrollbar-bg: #181823;
+$color-scrollbar-thumb: #2D9596;
+$color-titulo-items-portafolio: #a4161a;
+$color-github: #6e5494;
+$color-linkedin: #0077b5;
+$color-icons-bg: #2a2e35;
+$color-nombre-bold: #bf0603;
+$color-profesion-bold: #d00000;
+$color-menu-vertical-bg: #6a040f;
+$color-menu-horizontal-bg: rgba(0, 0, 0, 0.8);
+$color-contenedor-texto-bg: linear-gradient(164deg, rgba(0, 31, 52, 1) 0%, rgba(8, 26, 36, 1) 100%);
+
+//-------------------FIN COLORES-------------------
+
+//-------------------SCROLLBAR-------------------
+body::-webkit-scrollbar{
+    width: 7px;
+    background: $color-scrollbar-bg;
+}
+
+body::-webkit-scrollbar-thumb{
+    height: 50px; 
+    background-color: $color-scrollbar-thumb;
+    border-radius: 5px;
+}
+//-------------------FIN SCROLLBAR-------------------
+
+//-----------------TITULO------------------
+.titulo-principal {
+    text-align: center;
+    h2 {
+        position: relative;
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: $color-tercero;
+    span {
+        color: $color-segundo;
+        }
+    }
+}
+//-----------------FIN TITULO------------------
+
+
+//-------------------HEADER-------------------
+header {
+    /*Imagen de <a href="https://pixabay.com/es/users/tumisu-148124/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4168483">Tumisu</a> en <a href="https://pixabay.com/es//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4168483">Pixabay</a>*/
+    background: url("../img/bg.jpg"), $color-primero;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-height: 600px;
+    min-width: 100%;
+    //-------------------MENÚ-------------------
+    .menu {
+        /* Para fijar el menu */
+        position: fixed;
+        z-index: 1000;
+        /* Para fijar el menu */
+        top: 0;
+        right: 0;
+        height: 100%; 
+        padding: 15px;
+        display: flex;
+        //Para que el menú sea una columna
+        flex-direction: column; 
+        //Alinea los elementos verticalmente en el centro
+        justify-content: center; 
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: $color-blanco;
+            background-color: $color-menu-vertical-bg;
+            cursor: pointer;
+            justify-content: center;
+            //Para cambiar tamaño de iconos
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin: 1rem 0.4rem;
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                //Para cambiar tamaño de iconos
+                font-size: 1.4rem;
+                text-shadow: 0.05em 0.04em 0.4em $color-primero;
+            }
+            &:hover {
+                background-color: $color-primero;
+                text-shadow: 0.05em 0.04em 0.4em $color-segundo;
+                border: 2px solid $color-segundo;
+            }
+            i:hover {
+                color: $color-blanco;
+            }
+        }
+    }
+    //-------------------FIN MENÚ-------------------
+    //-------------------CONTENEDOR TEXTO-------------------
+    .contenedor-texto {
+        //Para que el contenido y el contenedor queden centrados
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin: 190px 0; 
+        .texto {
+            border-radius: 3px;
+            display: inline-block;
+            text-align: center;
+            padding: 20px 60px; 
+            background: $color-contenedor-texto-bg;
+            /* Hay dos selectores */
+            h1, h2 {
+                color: $color-blanco;
+            //Porque es uno de los tamaños de google fonts
+                font-weight: 300;
+                margin: 0; 
+            }
+            .nombre {
+                margin-bottom: 10px;
+                font-size: 3.2rem;
+                line-height: 50px; 
+                .bold {
+                color: $color-nombre-bold;
+                font-weight: 600;
+                }
+            }
+            .profesion {
+                font-size: 25px;
+                line-height: 25px; 
+                .bold {
+                color: $color-profesion-bold;
+                font-weight: 600;
+                }
+            }
+        }
+    }//-------------------CONTENEDOR TEXTO-------------------
+}//-------------------FIN HEADER-------------------
+
+
+
+//---------------------MAIN---------------------
+.main {
+    //---------------------ACERCA DE---------------------
+    .acerca-de {
+        // Para centrar todo el contenido incluyendo la fotografía porque es de tipo línea
+        text-align: center; 
+        .contenedor {
+            // Los demás contenedores ocultan el contenido sobrante, excepto este gracias a
+            // agregarle overflow: visible; a este contenedor. Esto se ha agregado para que se pueda ver la fotografía
+            overflow: visible; 
+            .foto {
+                // -60 el valor negativo hace que la foto quede entre los dos contenedores: el de acerca de y el header
+                margin-top: -60px;
+                img {
+                    background: $color-primero;
+                    height: 150px;
+                    border-radius: 50%;
+                    vertical-align: top;
+                    border: 5px solid $color-blanco;
+                }
+            }
+            .texto {
+                color: $color-gris;
+                font-weight: 600;
+                font-size: 1em;
+                line-height: 30px;
+                width: 80%;
+                margin: 40px auto 60px auto;
+                .bold {
+                    color: $color-segundo;
+                }
+            }
+        }
+    }//---------------FIN DE ACERCA DE-----------------
+
+    //--------------TRABAJOS------------------
+    .trabajos {
+        background: $color-blanco;
+        padding: 60px 0;
+        .contenedor {
+            // Es recomendable agregar siempre overflow: hidden;
+            overflow: hidden;
+            //---------------PORTAFOLIO-------------------
+            .portfolios {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 2rem;
+                margin-top: 3rem;
+                .portfolio-item {
+                    position: relative;
+                    border-radius: 15px;
+                    &:hover .hover-items {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 15px;
+                    }
+                    .hover-items {
+                        width: 100%;
+                        height: 100%;
+                    // Es el color que aparece cuando el mouse se coloca sobre las imágenes
+                    // que están en mi portafolio
+                        background-color: $color-primero;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        border-radius: 15px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        opacity: 0;
+                        transform: scale(0);
+                        transition: all 0.4s ease-in-out;
+                        h3 { 
+                            color: $color-titulo-items-portafolio;
+                            margin-bottom: 1.3rem;
+                            text-align: center;
+                        }
+                        h4 {
+                            color: $color-segundo;
+                            margin-bottom: 1.5rem;
+                            text-align: center;
+                        }
+                        .icons {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .icon {
+                                // Es el color del icono que aparece en mi portafolio cuando el 
+                                // mouse se pone sobre las imágenes
+                                background-color: $color-icons-bg;
+                                border-radius: 50%;
+                                width: 55px;
+                                height: 55px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 0 1rem;
+                                cursor: pointer;
+                                transition: all 0.4s ease-in-out;
+                                text-shadow: 0.05em 0.04em 0.4em $color-blanco;
+                                text-decoration: none;
+                                &:hover {
+                                    background-color: $color-github;
+                                }
+                                i {
+                                    font-size: 1.8rem;
+                                    color: $color-blanco;
+                                    margin: 0 1rem;
+                                }
+                                &:hover i {
+                                    /*Es el color hover del icono en mi portafolio*/
+                                    color: $color-blanco;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }//---------------FIN TRABAJOS------------------
+}//---------------FIN MAIN-----------------
+
+
+
+
+
+
+//---------------FOOTER-------------------
+//------------------CONTACTO---------------
+footer {
+    .contacto {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        //------------------FORMULARIO---------------
+        .formulario {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                border: 2px solid $color-gris;
+                border-radius: 15px;
+                padding: 15px 20px;
+                font-size: 15px;
+                color: $color-segundo;
+                background: none;
+            }
+            input[type="text"],
+            input[type="email"],
+            textarea:focus {
+                outline: none;
+                border: 2px solid $color-blanco;
+            }
+            input[type="email"],
+            input[type="text"] {
+                //Se le ha dado ese ancho para que quede uno al lado del otro
+                    width: 99%;
+                    margin-bottom: 15px; 
+                }
+            textarea { //Textarea = el input del mensaje
+                //Para que abarque el 100% del ancho y se vea al ancho de la pantalla
+                width: 99%;
+                height: 90px;
+                //La siguientes propiedades son para limitar su ancho y alto y así el usuario no pueda modificarlo
+                min-width: 99%;
+                margin-bottom: 15px;
+                min-height: 100px;
+                max-height: 300px; 
+            }
+        }//------------------FIN FORMULARIO---------------
+
+        //-----------------------BOTÓN---------------------
+        .submit-btn {
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            //Icono del botón envia
+            .main-btn {
+                border-radius: 30px;
+                color: $color-blanco;
+                font-weight: 600;
+                position: relative;
+                border: 1px solid $color-tercero;
+                display: flex;
+                align-self: flex-end;
+                align-items: center;
+                overflow: hidden;
+                text-decoration: none;
+                //---------Cambiar el tamaño del icono del botón enviar----------
+                font-size: 18px;
+                //Texto del botón envia/
+                .btn-text {
+                    color: $color-blanco;
+                    padding: 0 1.4rem;
+                    //---------Cambiar el tamaño del texto del botón enviar----------
+                    font-size: 16px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                //Circulo del botón enviar
+                .btn-icon {
+                //Es el color de circulo del botn
+                    background-color: $color-tercero;
+                    //Sombra del icono del botón enviar
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    //---------Cambiar el tamaño del circulo del botón enviar-----------
+                    padding: 0.5rem;
+                }
+                //Transición
+                &::before {
+                content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translateX(100%);
+                    transition: all 0.3s ease-out;
+                    z-index: -1;
+                }
+                &:hover {
+                    transition: all 0.3s ease-out;
+                &::before {
+                    width: 100%;
+                    height: 100%;
+                    /*Es el color de hover del botn*/
+                    background-color: $color-tercero;
+                    transform: translateX(0);
+                    transition: all 0.3s ease-out;
+                }
+            }
+        }//-----------------------FIN BOTÓN---------------------
+    }
+}
+//------------REDES SOCIALES-------------- 
+    .redes-sociales {
+        background: $color-primero;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: $color-blanco;
+                text-shadow: 0.05em 0.04em 0.4em $color-blanco;
+                background-color: $color-icons-bg;
+                cursor: pointer;
+                justify-content: center;
+                //Para cambiar el tamaño de los iconos de las redes sociales
+                width: 58px;
+                height: 58px;
+                border-radius: 50%;
+                margin: 0 0.4rem;
+                transition: all 0.4s ease-in-out;
+                i {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    //Para cambiar el tamaño de los iconos de las redes sociales
+                    font-size: 1.6rem;
+                }
+                &:hover {
+                //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                    background-color: $color-github;
+                    i {
+                        //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                        color: $color-blanco;
+                        text-shadow: 0.05em 0.04em 0.4em $color-blanco;
+                    }
+                }
+            }
+            .github:hover {
+                //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                background-color: $color-github;
+                i {
+                    //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                    color: $color-blanco;
+                    text-shadow: 0.05em 0.04em 0.4em $color-blanco;
+                }
+            }
+            .linkedin:hover {
+                //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                background-color: $color-blanco;
+                i {
+                    //Es el color hover de los iconos de las RRSS de la pagina de contactos
+                    color: $color-linkedin;
+                text-shadow: 0.05em 0.04em 0.4em $color-blanco;
+                }
+            }// -------------FIN DE REDES SOCIALES------------------ 
+        }
+    }
+}
+// -------------FIN FOOTER------------------
